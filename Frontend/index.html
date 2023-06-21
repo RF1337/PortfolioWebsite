@@ -1,0 +1,258 @@
+<html lang="en">
+  <!-- Head tag for linking to jQuery etc.
+Also used for changing the title and linking a favicon -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <link
+      rel="shortcut icon"
+      href="assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Rasmus Ferst</title>
+  </head>
+  <!-- Body tag for all the visual HTML I want on the page.
+Using Tailwind CSS to style the project with classes -->
+  <body
+    class="bg-slate-900 text-white selection:bg-purple-700 selection:text-white"
+  >
+    <!-- Navbar which contains a logo, name, sections (CV, Projects, Contact) & a LinkedIn logo -->
+    <nav class="fixed top-0 z-20 w-full bg-slate-900 px-8 shadow-2xl">
+      <div class="container mx-auto flex items-center justify-between py-4">
+        <div class="flex items-center gap-2">
+          <!-- Logo that goes to the home section when clicking on it -->
+          <a href="#home">
+            <img class="w-8" src="assets/logo.png" alt="logo" />
+          </a>
+          <span
+            class="bg-gradient-to-r from-blue-300 via-pink-500 to-purple-500 bg-clip-text text-2xl font-bold text-transparent"
+            >Rasmus Ferst.</span
+          >
+        </div>
+        <!-- Unordered list for the different sections + CV.
+            CV gets opened in a different page and the projects + contact sections have a smooth scroll effect that scrolls
+            to their ID -->
+        <ul class="hidden space-x-7 text-xl md:flex">
+          <li class="hover:text-blue-300">
+            <a href="CV.pdf" target="_blank">CV</a>
+          </li>
+          <li class="hover:text-pink-500">
+            <a href="#projects">Projects</a>
+          </li>
+          <li class="hover:text-purple-500">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+        <!-- LinkedIn logo that goes to my LinkedIn page -->
+        <a href="https://linkedin.com/in/rasmusferst" target="_blank">
+          <img
+            src="assets/linkedin.png"
+            class="hidden w-8 cursor-pointer md:block"
+            alt="linkedin"
+          />
+        </a>
+        <!-- Hamburger icon/SVG that is used as my mobile/small resolution navbar -->
+        <div id="hamburger" class="z-20 cursor-pointer md:hidden">
+          <img src="SVG/hamburger.svg" class="w-5" alt="menu" />
+        </div>
+        <!-- Mobile/small screen navbar that is hidden by default but gets shown at specific resolutions -->
+        <ul
+          id="menu"
+          class="absolute left-0 top-0 flex hidden h-screen w-full flex-col items-center justify-center bg-slate-900 p-10 text-center"
+        >
+          <li class="my-4"><a href="CV.pdf">CV</a></li>
+          <!-- The projects and contact section for the mobile navbar have an ID so I can toggle the hidden attribute after clicking
+            because the menu covers the whole screen. So after you click them it will disappear and go to the section you clicked. -->
+          <li id="projects-option" class="my-4">
+            <a href="#projects">Projects</a>
+          </li>
+          <li id="contact-option" class="my-4">
+            <a href="#contact">Contact</a>
+          </li>
+          <li class="my-4 w-8">
+            <a href="https://linkedin.com/in/rasmusferst">
+              <img src="assets/linkedin.png" alt="linkedin" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Creating a cursor that is styled and animated via the use of plain CSS and JS -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Home page/the section where I have information about me -->
+    <div class="h-96">
+      <div id="home" class="flex flex-col items-center font-bold">
+        <div class="mt-32">
+          <div class="justify-center text-3xl sm:flex md:text-5xl">
+            <h1>Hi there, I'm</h1>
+            <!-- Span for my name which has a colour gradient -->
+            <span
+              class="bg-gradient-to-r from-blue-300 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:ml-3"
+              >Rasmus Ferst</span
+            >
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <h1
+            class="absolute max-w-xs text-center font-normal sm:max-w-md md:max-w-xl md:text-2xl"
+          >
+            A 17-year-old student based in Ringsted, Denmark. <br />I have a
+            passion for <span class="auto-type"></span>
+          </h1>
+        </div>
+        <div class="mt-40">
+          <h1 id="projects" class="text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+            Projects
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="h-screen">
+      <div class="min-w-xl flex items-center justify-center p-5 text-white">
+        <div
+          class="w-full rounded-lg bg-gradient-to-l from-blue-300 via-pink-500 to-purple-500 p-4 shadow-2xl md:w-4/5"
+        >
+          <div>
+            <span id="title0" class="text-md font-bold"></span>
+            <p id="description0"></p>
+          </div>
+          <div>
+            <br />
+            <h1>Technologies used:</h1>
+            <div class="flex items-center gap-2">
+              <img class="h-9 w-8 object-cover" src="assets/cs.png" alt="C#" />
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a id="link0" target="_blank">
+              <img class="h-8 w-8" src="assets/githubwhite.png" alt="GitHub" />
+            </a>
+            <span>Check the GitHub!</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center p-5 text-white">
+        <div
+          class="w-full rounded-lg bg-gradient-to-l from-blue-300 via-pink-500 to-purple-500 p-4 shadow-2xl md:w-4/5"
+        >
+          <div>
+            <span id="title1" class="text-md font-bold"></span>
+            <p id="description1"></p>
+          </div>
+          <div>
+            <br />
+            <h1>Technologies used:</h1>
+            <div class="flex items-center gap-2">
+              <img class="h-9 w-8 object-cover" src="assets/cs.png" alt="C#" />
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a id="link1" target="_blank">
+              <img class="h-8 w-8" src="assets/githubwhite.png" alt="GitHub" />
+            </a>
+            <span>Check the GitHub!</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center p-5 text-white">
+        <div
+          class="w-full rounded-lg bg-gradient-to-l from-blue-300 via-pink-500 to-purple-500 p-4 shadow-2xl md:w-4/5"
+        >
+          <div>
+            <span id="title2" class="text-md font-bold"></span>
+            <p id="description2"></p>
+          </div>
+          <div>
+            <br />
+            <h1>Technologies used:</h1>
+            <div class="flex items-center gap-2">
+              <img
+                class="h-8 w-8 object-cover"
+                src="SVG/tailwind.svg"
+                alt="Tailwind"
+              />
+              <img class="h-9 w-8 object-cover" src="assets/cs.png" alt="C#" />
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a id="link2" target="_blank">
+              <img class="h-8 w-8" src="assets/githubwhite.png" alt="GitHub" />
+            </a>
+            <span>Check the GitHub!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="h-screen">
+      <div class="mx-auto max-w-screen-md px-4 py-8 text-white lg:py-16">
+        <p
+          class="mb-4 mt-12 text-center text-xl font-bold sm:text-2xl md:text-3xl lg:mb-8 lg:text-4xl"
+        >
+          Contact
+        </p>
+        <form action="#" method="post" class="space-y-8">
+          <div>
+            <label for="mail" class="mb-2 block text-sm font-medium"
+              >Your email</label
+            >
+            <input
+              type="mail"
+              id="mail"
+              class="block w-full rounded-lg p-2.5 text-sm"
+              placeholder="name@mail.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="subject" class="mb-2 block text-sm font-medium"
+              >Subject</label
+            >
+            <textarea
+              id="subject"
+              class="block w-full rounded-lg p-2.5 text-sm text-gray-900"
+              placeholder="Subject"
+            ></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="message" class="mb-2 block text-sm font-medium"
+              >Your message</label
+            >
+            <textarea
+              id="message"
+              rows="6"
+              class="block w-full rounded-lg p-2.5 text-sm text-gray-900"
+              placeholder="Leave a comment..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="h-8 bg-slate-950 text-white shadow">
+      <div class="flex w-full justify-center">
+        <span class="mt-2 text-sm"
+          >© 2023 <a href="https://rasmusferst.com/" class="">Rasmus Ferst</a>.
+          All Rights Reserved.
+        </span>
+      </div>
+    </footer>
+
+    <!-- JavaScript file for handling API connection, animations and cursor -->
+    <script src="main.js"></script>
+  </body>
+</html>
+<!-- TODO: Contact form -->
