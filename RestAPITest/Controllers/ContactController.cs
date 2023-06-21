@@ -9,31 +9,24 @@ namespace PortfolioRestAPI.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    public class EmailController : ControllerBase
+    public class ContactController : ControllerBase
     {
-        private readonly IConfiguration _config;
-
-        public EmailController(IConfiguration config)
+        private readonly IEnumerable<ISendService> _sendServices;
+        private readonly DALManager _dALManager;
+        public ContactController(IEnumerable<ISendService> sendServices, DALManager dALManager)
         {
-            _config = config;
+            _sendServices = sendServices;
+            _dALManager = dALManager;
         }
 
+
         [HttpPost(Name = "PostContact")]
-        public IActionResult PostContact(ContactData contactData)
+        public void SendData(ContactData contactData)
         {
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("rasmus.ferst@gmail.com"));
-            email.To.Add(MailboxAddress.Parse("rasmus.ferst@gmail.com"));
-            email.Subject = "Fra portfolio!";
-            email.Body = new TextPart(TextFormat.Plain) { Text = $"Mail fra: {contactData.Mail}\nSubject: {contactData.Subject}\n{contactData.Message}" };
-
-            using var smtp = new SmtpClient();
-            smtp.Connect(_config["MailHost"], 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate(_config["MailName"], _config["MailAppPassword"]);
-            smtp.Send(email);
-            smtp.Disconnect(true);
-
-            return Ok();
+            foreach(ISendService service in _sendServices)
+            {
+                service.SendData(contactData);
+            }
         }
     }
 }

@@ -9,7 +9,6 @@ namespace PortfolioRestAPI
     public class DALManager
     {
         private readonly IConfiguration _config;
-
         public DALManager(IConfiguration configuration)
         {
             _config = configuration;
@@ -54,12 +53,5 @@ namespace PortfolioRestAPI
             }
             return _tmpProjects;
         }
-
-
-
-
-       
-
-
     }
 }

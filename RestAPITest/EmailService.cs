@@ -16,8 +16,6 @@ namespace PortfolioRestAPI
         {
             _config = config;
         }
-
-        [HttpPost(Name = "PostContact")]
         public void SendData(ContactData contactData)
         {
                 var email = new MimeMessage();
