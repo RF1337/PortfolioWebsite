@@ -7,16 +7,16 @@ namespace PortfolioRestAPI.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
+        // Dependency injecting the DALManager class
         private readonly DALManager _dALmanager;
-
         public ProjectController(DALManager dALmanager)
         {
             _dALmanager = dALmanager;
         }
-
+        // Creating a GET method 
         [HttpGet(Name = "GetProjects")]
         public IEnumerable<Project> GetProjects()
-        {
+        { // Returns the DALManager method named GetProject();
             return _dALmanager.GetProject();
         }
     }

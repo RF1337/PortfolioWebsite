@@ -7,7 +7,13 @@ namespace PortfolioRestAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            // Registering the services EmailService and SMSService
+            // It specifies that whenever an instance of ISendService is requested
+            // There should also be a an instance of EmailService and SMSService
             builder.Services.AddScoped<ISendService, EmailService>();
+            builder.Services.AddScoped<ISendService, SMSService>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
