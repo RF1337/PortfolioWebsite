@@ -13,11 +13,9 @@ namespace PortfolioRestAPI.Controllers
     {
         // Dependency injecting the DALManager and ISendService
         private readonly IEnumerable<ISendService> _sendServices;
-        private readonly DALManager _dALManager;
-        public ContactController(IEnumerable<ISendService> sendServices, DALManager dALManager)
+        public ContactController(IEnumerable<ISendService> sendServices)
         {
             _sendServices = sendServices;
-            _dALManager = dALManager;
         }
 
         // Creating a POST method

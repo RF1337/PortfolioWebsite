@@ -3,10 +3,10 @@
     // Project class that will be set to the data from the database
     public class Project
     {
-        public int ProjectID { get; set; }
-        public string Title { get; set; } = string.Empty; 
-        public string Description { get; set; } = string.Empty; 
-        public string Link { get; set; } = string.Empty;
+        public int ProjectID { get; }
+        public string Title { get; }
+        public string Description { get; }
+        public string Link { get; }
 
         // Creating a constructor so the DALManager's NpgsqlReader can read the parameters of a project object
         public Project(int id, string title, string description, string link)
