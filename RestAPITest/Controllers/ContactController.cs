@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
+using PortfolioRestAPI.Models;
+using PortfolioRestAPI.Services;
 
 namespace PortfolioRestAPI.Controllers
 {

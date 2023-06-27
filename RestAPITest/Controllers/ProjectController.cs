@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PortfolioRestAPI.DAL;
+using PortfolioRestAPI.Models;
 using System.Security.Cryptography.X509Certificates;
 
 namespace PortfolioRestAPI.Controllers

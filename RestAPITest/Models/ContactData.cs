@@ -1,4 +1,4 @@
-﻿namespace PortfolioRestAPI
+﻿namespace PortfolioRestAPI.Models
 {
     // Class named ContactData which is used for the ISendService method
     public class ContactData

@@ -3,8 +3,9 @@ using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 using System.Diagnostics;
+using PortfolioRestAPI.Models;
 
-namespace PortfolioRestAPI
+namespace PortfolioRestAPI.DAL
 {
     public class DALManager
     {

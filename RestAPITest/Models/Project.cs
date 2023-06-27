@@ -1,4 +1,4 @@
-﻿namespace PortfolioRestAPI
+﻿namespace PortfolioRestAPI.Models
 {
     // Project class that will be set to the data from the database
     public class Project

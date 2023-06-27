@@ -1,3 +1,6 @@
+using PortfolioRestAPI.DAL;
+using PortfolioRestAPI.Services;
+
 namespace PortfolioRestAPI
 {
     public class Program
@@ -8,11 +11,10 @@ namespace PortfolioRestAPI
 
             // Add services to the container.
 
-            // Registering the services EmailService and SMSService
+            // Registering the services EmailService
             // It specifies that whenever an instance of ISendService is requested
-            // There should also be a an instance of EmailService and SMSService
+            // there should also be a an instance of EmailService
             builder.Services.AddScoped<ISendService, EmailService>();
-            //builder.Services.AddScoped<ISendService, SMSService>()VUS
 
 
             builder.Services.AddControllers();
